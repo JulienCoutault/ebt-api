@@ -55,8 +55,10 @@ class Api:
     def get_cities(self):
         return self.get("mycities", "1")
 
-    def get_zipcodes(self):
-        return self.get("myzipcodes", "1")
+    def get_zipcodes(self, city: str, country: str, comment: str = ""):
+        return self.get(
+            "myzipcodes", "1", {"city": city, "country": country, "comment": comment}
+        )
 
     def insert_note(
         self,
