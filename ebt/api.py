@@ -83,3 +83,24 @@ class Api:
                 "comment0": comment,
             },
         )
+
+    def search(self, term: str, type: int = 0, limit: int = 0, cursor: int = 0):
+        """
+        :param str term: the search term; minimum length 3 characters
+        :param str type: 1 - only users; 2 - only cities; 3 - only countries
+        :param str limit: The desired maximum number of results per page. By default all results will be returned
+        :param str cursor: The cursor/requested page starting from 0; e.g. if c=1 and pp=50 the results 51-100 will be returned
+        """
+
+        params = {"find": term}
+
+        if type:
+            params["what"] = type
+
+        if limit:
+            params["pp"] = limit
+
+        if cursor:
+            params["c"] = cursor
+
+        return self.get("search", "1", params)

@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "ebt-api"
+version = "0.0.1"
+description = "A library to use eurobilltracker.com API"
+authors = ["Programmateur01 <git@juliencoutault.fr>"]
+# package attributes
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/JulienCoutault/ebt-api"
+repository = "https://github.com/JulienCoutault/ebt-api"
+keywords = ["eurobilltracker", "ebt", "euro", "bill", "tracker"]
+classifiers = [
+  'Development Status :: 3 - Alpha',
+  'Intended Audience :: Developers',
+  'Topic :: Software Development :: Build Tools',
+  'License :: OSI Approved :: MIT License',
+  'Programming Language :: Python :: 3',
+]
+include = [
+  "LICENSE",
+]
+packages = [
+  { include = "ebt" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+requests = "^2.31.0"
+poetry-plugin-dotenv = "^0.8.3"
+python-dotenv = "^1.0.1"
+
+[tool.poetry.dev-dependencies]
+black = "^24.3.0"
+pytest = "^8.1.1"
+var_dump = "^1.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
