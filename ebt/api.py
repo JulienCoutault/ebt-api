@@ -1,10 +1,10 @@
 #!/usr/bin/python
 # coding: utf8
 
+import csv
 import json
 import requests
 from urllib.parse import urlencode
-from var_dump import var_dump
 
 
 class Api:
@@ -55,10 +55,14 @@ class Api:
     def get_cities(self):
         return self.get("mycities", "1")
 
+    def get_note(self, note_id):
+        return self.get("globalstats_profile_note", "1", {"note_id": note_id})['data']
+
+    def get_user(self, user_id):
+        return self.get("globalstats_profile_user", "1", {"user_id": user_id})['data']
+
     def get_zipcodes(self, city: str, country: str, comment: str = ""):
-        return self.get(
-            "myzipcodes", "1", {"city": city, "country": country, "comment": comment}
-        )
+        return self.get("myzipcodes", "1", {"city": city, "country": country, "comment": comment})
 
     def insert_note(
         self,

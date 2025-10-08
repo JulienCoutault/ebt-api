@@ -7,7 +7,6 @@ dist/
 *.egg-info/
 poetry.lock
 .env
+*.csv
 
-# tmp
-test.py
-encode_chain.py
+scripts/
