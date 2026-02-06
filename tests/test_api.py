@@ -11,15 +11,10 @@ from ebt import Api
 load_dotenv()
 
 
-def decrypt(str):
-    return base64.b64decode(str.encode("ascii")).decode("ascii")
-
-
 def setup_api() -> Api:
     api = Api()
 
-    # I don't want to see password in clear even in env file
-    api.login(decrypt(os.getenv("LOGIN")), decrypt(os.getenv("PASSWORD")))
+    api.login(os.getenv("LOGIN"), os.getenv("PASSWORD"))
 
     return api
 

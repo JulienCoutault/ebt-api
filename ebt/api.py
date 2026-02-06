@@ -88,7 +88,7 @@ class Api:
             },
         )
 
-    def search(self, term: str, type: int = 0, limit: int = 0, cursor: int = 0):
+    def search(self, term: str, typee: int = 0, limit: int = 0, cursor: int = 0):
         """
         :param str term: the search term; minimum length 3 characters
         :param str type: 1 - only users; 2 - only cities; 3 - only countries
@@ -98,8 +98,8 @@ class Api:
 
         params = {"find": term}
 
-        if type:
-            params["what"] = type
+        if typee:
+            params["what"] = typee
 
         if limit:
             params["pp"] = limit
